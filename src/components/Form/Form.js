@@ -1,6 +1,7 @@
 import "./Form.css";
 import TextField from "../TextField";
 import SelectOptions from "../SelectOptions";
+import Button from "../Button";
 
 const Form = () => {
   return (
@@ -11,6 +12,8 @@ const Form = () => {
         <TextField title="Puesto" placeholder="Ingrese puesto" />
         <TextField title="Foto" placeholder="Ingrese enlace de foto" />
         <SelectOptions title="Equipo" placeholder="Seleccione el equipo" />
+        {/* Otra manera de hacerlo: le puedo agregar varios hijos de diferentes tipos: imagenes, texto, etc */}
+        <Button>Crear</Button>
       </form>
     </section>
   );

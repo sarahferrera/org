@@ -17,6 +17,7 @@ const Form = () => {
       //A continuacion: JS sabe que si lo pongo asi es por que el nombre y el componente tienen el mismo valor
       position,
       photo,
+      team,
     };
     console.log(dataToSend);
   };
@@ -48,7 +49,12 @@ const Form = () => {
           updateValue={setPhoto}
         />
 
-        <SelectOptions title="Equipo" placeholder="Seleccione el equipo" />
+        <SelectOptions
+          title="Team"
+          placeholder="Seleccione el equipo"
+          value={team}
+          updateTeam={setTeam}
+        />
         {/* Otra manera de hacerlo: le puedo agregar varios hijos de diferentes tipos: imagenes, texto, etc */}
         <Button>Crear</Button>
       </form>

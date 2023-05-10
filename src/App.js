@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Form from "./components/Form/Form";
 import MiOrg from "./components/MiOrg";
 import Team from "./components/Team";
+import Footer from "./components/Footer";
 
 function App() {
   const [showForm, updateShow] = useState(false);
@@ -72,9 +73,7 @@ function App() {
           registerCollaborator={registerCollaborator}
         />
       )}
-
       <MiOrg switchShow={switchShow} />
-
       {teams.map((team) => (
         <Team
           data={team}
@@ -84,6 +83,7 @@ function App() {
           )}
         />
       ))}
+      <Footer />;
     </div>
   );
 }

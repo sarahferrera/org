@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5%;
+  box-sizing: border-box;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+}
+
+.social {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.social img {
+  padding: 0px 15px;
+}

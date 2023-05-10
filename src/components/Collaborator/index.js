@@ -1,10 +1,11 @@
 import "./Collaborator.css";
 
 const Collaborator = (props) => {
-  const { name, position, photo, team } = props.data;
+  const { name, position, photo } = props.data;
+  const { primaryColor } = props;
   return (
     <div className="collaborator">
-      <div className="header">
+      <div style={{ backgroundColor: primaryColor }} className="header">
         <img src={photo} alt="profile" />
       </div>
       <div className="info">

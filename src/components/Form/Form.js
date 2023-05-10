@@ -4,7 +4,7 @@ import TextField from "../TextField";
 import SelectOptions from "../SelectOptions";
 import Button from "../Button";
 
-const Form = () => {
+const Form = (props) => {
   const [name, setName] = useState("");
   const [position, setPosition] = useState("");
   const [photo, setPhoto] = useState("");
@@ -19,7 +19,7 @@ const Form = () => {
       photo,
       team,
     };
-    console.log(dataToSend);
+    props.registerCollaborator(dataToSend);
   };
 
   return (
@@ -54,6 +54,7 @@ const Form = () => {
           placeholder="Seleccione el equipo"
           value={team}
           updateTeam={setTeam}
+          teams={props.teams}
         />
         {/* Otra manera de hacerlo: le puedo agregar varios hijos de diferentes tipos: imagenes, texto, etc */}
         <Button>Crear</Button>

@@ -5,15 +5,16 @@ const SelectOptions = (props) => {
   //  return <option></option>
   //} ) :
 
-  const teams = [
-    "Programacion",
-    "Front End",
-    "Data Science",
-    "Devops",
-    "UX y Diseno",
-    "Movil",
-    "Innovacion y Gestion",
-  ];
+  //Esto lo elimino y lo saco todo de una fuente
+  // const teams = [
+  //   "Programacion",
+  //   "Front End",
+  //   "Data Science",
+  //   "Devops",
+  //   "UX y Diseno",
+  //   "Movil",
+  //   "Innovacion y Gestion",
+  // ];
 
   const manageChange = (e) => {
     props.updateTeam(e.target.value);
@@ -26,7 +27,7 @@ const SelectOptions = (props) => {
         <option value="" disabled defaultValue="" hidden>
           Seleccionar equipo
         </option>
-        {teams.map((team, index) => (
+        {props.teams.map((team, index) => (
           <option key={index} value={team}>
             {team}
           </option>

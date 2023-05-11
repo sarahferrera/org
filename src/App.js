@@ -8,7 +8,44 @@ import Footer from "./components/Footer";
 
 function App() {
   const [showForm, updateShow] = useState(false);
-  const [collaborators, updateCollaborator] = useState([]);
+  const [collaborators, updateCollaborator] = useState([
+    {
+      name: "Sarah Ferrera",
+      position: "Instructora",
+      photo: "https://github.com/sarahferrera.png",
+      team: "Front End",
+    },
+    {
+      team: "Front End",
+      photo: "https://github.com/harlandlohora.png",
+      name: "Harland Lohora",
+      position: "Instructor",
+    },
+    {
+      team: "Programación",
+      photo: "https://github.com/genesysaluralatam.png",
+      name: "Genesys Rondón",
+      position: "Desarrolladora de software e instructora",
+    },
+    {
+      team: "UX y Diseño",
+      photo: "https://github.com/JeanmarieAluraLatam.png",
+      name: "Jeanmarie Quijada",
+      position: "Instructora en Alura Latam",
+    },
+    {
+      team: "Programación",
+      photo: "https://github.com/christianpva.png",
+      name: "Christian Velasco",
+      position: "Head de Alura e Instructor",
+    },
+    {
+      team: "Innovación y Gestión",
+      photo: "https://github.com/JoseDarioGonzalezCha.png",
+      name: "Jose Gonzalez",
+      position: "Dev FullStack",
+    },
+  ]);
 
   //Ternario --> condicion ? seMuestra : noSeMuestra
   // O podria estar sin el else(:)
@@ -24,7 +61,7 @@ function App() {
     updateCollaborator([...collaborators, collaborator]);
   };
 
-  //Lista de equipos
+  //Lista de teams
   const teams = [
     {
       title: "Programación",

@@ -47,22 +47,7 @@ function App() {
     },
   ]);
 
-  //Ternario --> condicion ? seMuestra : noSeMuestra
-  // O podria estar sin el else(:)
-  // condicion && seMuestra
-
-  const switchShow = () => {
-    updateShow(!showForm);
-  };
-
-  //Registrar colaborador
-  const registerCollaborator = (collaborator) => {
-    console.log("Nuevo colaborador", collaborator);
-    updateCollaborator([...collaborators, collaborator]);
-  };
-
-  //Lista de teams
-  const teams = [
+  const [teams, updateTeam] = useState([
     {
       title: "Programación",
       primaryColor: "#57C278",
@@ -98,7 +83,41 @@ function App() {
       primaryColor: "#FF8A29",
       backgroundColor: "#FFEEDF",
     },
-  ];
+  ]);
+
+  //Ternario --> condicion ? seMuestra : noSeMuestra
+  // O podria estar sin el else(:)
+  // condicion && seMuestra
+
+  const switchShow = () => {
+    updateShow(!showForm);
+  };
+
+  //Eliminar colaborador
+  const deleteCollaborator = () => {
+    console.log("Eliminar colaborador");
+  };
+
+  //Registrar colaborador
+  const registerCollaborator = (collaborator) => {
+    console.log("Nuevo colaborador", collaborator);
+    updateCollaborator([...collaborators, collaborator]);
+  };
+
+  //Actualizar color de equipo
+  const updateTeamColor = (newColor, teamTitle) => {
+    console.log("Actualizar: ", newColor, teamTitle);
+    const updatedTeam = teams.map((team) => {
+      if (team.title === teamTitle) {
+        team.primaryColor = newColor;
+      }
+
+      return team;
+    });
+
+    updateTeam(updatedTeam);
+  };
+
   return (
     <div>
       <Header />
@@ -118,6 +137,8 @@ function App() {
           collaborators={collaborators.filter(
             (collaborator) => collaborator.team === team.title
           )}
+          deleteCollaborator={deleteCollaborator}
+          updateTeamColor={updateTeamColor}
         />
       ))}
       <Footer />;

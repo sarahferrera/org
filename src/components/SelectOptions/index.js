@@ -22,7 +22,7 @@ const SelectOptions = (props) => {
 
   return (
     <div className="select-options">
-      <label>Equipos</label>
+      <label>Equipo</label>
       <select value={props.value} onChange={manageChange}>
         <option value="" disabled defaultValue="" hidden>
           Seleccionar equipo

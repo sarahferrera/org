@@ -27,14 +27,14 @@ const Form = (props) => {
       <form onSubmit={manageSubmission}>
         <h2>Rellena el formulario para crear el colaborador</h2>
         <TextField
-          title="Name"
+          title="Nombre"
           placeholder="Ingrese nombre"
           required={true}
           value={name}
           updateValue={setName}
         />
         <TextField
-          title="Position"
+          title="Puesto"
           placeholder="Ingrese puesto"
           required
           value={position}
@@ -42,7 +42,7 @@ const Form = (props) => {
         />
 
         <TextField
-          title="Photo"
+          title="Foto"
           placeholder="Ingrese enlace de foto"
           required
           value={photo}

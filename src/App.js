@@ -113,7 +113,13 @@ function App() {
     const NewCollaboratorsList = collaborators.filter(
       (collaborators) => collaborators.id !== id
     );
+    // Otra manera de hacer lo mismo: con return
+    // const NewCollaboratorsList = collaborators.filter(
+    //   (collaborators) =>{
+    //     return collaborators.id !== id}
+    //   );
     console.log(NewCollaboratorsList);
+    updateCollaborator(NewCollaboratorsList);
   };
 
   //Registrar colaborador

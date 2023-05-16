@@ -2,13 +2,17 @@ import "./Collaborator.css";
 import { TiDelete } from "react-icons/ti";
 
 const Collaborator = (props) => {
-  const { name, position, photo } = props.data;
+  const { name, position, photo, team, id } = props.data;
   const { primaryColor, deleteCollaborator } = props;
 
   return (
     <div className="collaborator">
-      <TiDelete className="delete" onClick={deleteCollaborator} />
-      <div style={{ backgroundColor: primaryColor }} className="header">
+      <TiDelete className="delete" onClick={() => deleteCollaborator(id)} />
+      <div
+        style={{ backgroundColor: primaryColor }}
+        className="header"
+        team={team}
+      >
         <img src={photo} alt="profile" />
       </div>
       <div className="info">

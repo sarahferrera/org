@@ -4,15 +4,13 @@ import hexToRgba from "hex-to-rgba";
 
 const Team = (props) => {
   //Destructuracion
-  const { primaryColor, title } = props.data;
+  const { primaryColor, title, id } = props.data;
 
   const { collaborators, deleteCollaborator, updateTeamColor } = props;
 
   const obj = {
     backgroundColor: hexToRgba(primaryColor, 0.2),
   };
-
-  console.log(primaryColor, obj);
 
   return (
     collaborators.length > 0 && (
@@ -24,7 +22,7 @@ const Team = (props) => {
           className="input-color"
           value={primaryColor}
           onChange={(event) => {
-            updateTeamColor(event.target.value, title);
+            updateTeamColor(event.target.value, id);
           }}
         />
 

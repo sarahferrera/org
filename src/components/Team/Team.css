@@ -26,3 +26,9 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 768px) {
+  .team h3 {
+    font-size: 32px;
+  }
+}

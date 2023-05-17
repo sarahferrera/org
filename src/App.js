@@ -8,7 +8,7 @@ import Team from "./components/Team";
 import Footer from "./components/Footer";
 
 function App() {
-  const [showForm, updateShow] = useState(false);
+  const [showForm, updateShow] = useState(true);
   const [collaborators, updateCollaborator] = useState([
     {
       id: uuidv4(),
@@ -132,7 +132,7 @@ function App() {
   const updateTeamColor = (newColor, id) => {
     console.log("Actualizar: ", newColor, id);
     const updatedTeam = teams.map((team) => {
-      if (team.title === id) {
+      if (team.id === id) {
         team.primaryColor = newColor;
       }
 
@@ -140,6 +140,12 @@ function App() {
     });
 
     updateTeam(updatedTeam);
+  };
+
+  // Crear equipo
+  const createTeam = (newTeam) => {
+    console.log(newTeam);
+    updateTeam([...teams, { ...newTeam, id: uuidv4() }]);
   };
 
   return (
@@ -151,6 +157,7 @@ function App() {
         <Form
           teams={teams.map((team) => team.title)}
           registerCollaborator={registerCollaborator}
+          createTeam={createTeam}
         />
       )}
       <MiOrg switchShow={switchShow} />

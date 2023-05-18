@@ -11,6 +11,8 @@
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 25%);
   border-radius: 20px;
   padding: 8px 100px;
+  /* en caso de no querer avanzar  a media query, usar este:
+  flex:1; */
 }
 
 .form h2 {

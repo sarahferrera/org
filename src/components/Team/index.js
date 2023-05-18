@@ -19,7 +19,7 @@ const Team = (props) => {
 
         <input
           type="color"
-          className="input-color"
+          className="teams__input-color"
           value={primaryColor}
           onChange={(event) => {
             updateTeamColor(event.target.value, id);

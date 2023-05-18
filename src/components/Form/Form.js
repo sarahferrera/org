@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Form.css";
-import TextField from "../TextField";
+import Input from "../Input";
 import SelectOptions from "../SelectOptions";
 import Button from "../Button";
 
@@ -9,6 +9,10 @@ const Form = (props) => {
   const [position, setPosition] = useState("");
   const [photo, setPhoto] = useState("");
   const [team, setTeam] = useState("");
+  const [title, updateTitle] = useState("");
+  const [color, updateColor] = useState("");
+
+  const { registerCollaborator, createTeam } = props;
 
   const manageSubmission = (e) => {
     e.preventDefault();
@@ -19,21 +23,26 @@ const Form = (props) => {
       photo,
       team,
     };
-    props.registerCollaborator(dataToSend);
+    registerCollaborator(dataToSend);
+  };
+
+  const manageNewTeam = (e) => {
+    e.preventDefault();
+    createTeam({ title, primaryColor: color });
   };
 
   return (
     <section className="form">
       <form onSubmit={manageSubmission}>
         <h2>Rellena el formulario para crear el colaborador</h2>
-        <TextField
+        <Input
           title="Nombre"
           placeholder="Ingrese nombre"
           required={true}
           value={name}
           updateValue={setName}
         />
-        <TextField
+        <Input
           title="Puesto"
           placeholder="Ingrese puesto"
           required
@@ -41,7 +50,7 @@ const Form = (props) => {
           updateValue={setPosition}
         />
 
-        <TextField
+        <Input
           title="Foto"
           placeholder="Ingrese enlace de foto"
           required
@@ -58,6 +67,25 @@ const Form = (props) => {
         />
         {/* Otra manera de hacerlo: le puedo agregar varios hijos de diferentes tipos: imagenes, texto, etc */}
         <Button>Crear</Button>
+      </form>
+      <form onSubmit={manageNewTeam}>
+        <h2>Rellena el formulario para crear el equipo</h2>
+        <Input
+          title="Titulo"
+          placeholder="Ingrese titulo"
+          required={true}
+          value={title}
+          updateValue={updateTitle}
+        />
+        <Input
+          title="Color"
+          placeholder="Ingrese el color en hexadecimal"
+          required
+          value={color}
+          updateValue={updateColor}
+          type="color"
+        />
+        <Button>Registrar Equipo</Button>
       </form>
     </section>
   );

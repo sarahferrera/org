@@ -1,9 +1,11 @@
 import "./Collaborator.css";
 import { TiDelete } from "react-icons/ti";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 
 const Collaborator = (props) => {
-  const { name, position, photo, team, id } = props.data;
-  const { primaryColor, deleteCollaborator } = props;
+  const { name, position, photo, team, id, fav } = props.data;
+
+  const { primaryColor, deleteCollaborator, like } = props;
 
   return (
     <div className="collaborator">
@@ -18,6 +20,11 @@ const Collaborator = (props) => {
       <div className="info">
         <h4>{name}</h4>
         <h5>{position}</h5>
+        {fav ? (
+          <AiFillHeart onClick={() => like(id)} color="red" className="" />
+        ) : (
+          <AiOutlineHeart onClick={() => like(id)} />
+        )}
       </div>
     </div>
   );

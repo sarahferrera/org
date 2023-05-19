@@ -8,7 +8,7 @@ import Team from "./components/Team";
 import Footer from "./components/Footer";
 
 function App() {
-  const [showForm, updateShow] = useState(true);
+  const [showForm, updateShow] = useState(false);
   const [collaborators, updateCollaborator] = useState([
     {
       id: uuidv4(),
@@ -16,6 +16,7 @@ function App() {
       position: "Instructora",
       photo: "https://github.com/sarahferrera.png",
       team: "Front End",
+      fav: false,
     },
     {
       team: "Front End",
@@ -23,6 +24,7 @@ function App() {
       id: uuidv4(),
       name: "Harland Lohora",
       position: "Instructor",
+      fav: true,
     },
     {
       team: "Programación",
@@ -30,6 +32,7 @@ function App() {
       id: uuidv4(),
       name: "Genesys Rondón",
       position: "Desarrolladora de software e instructora",
+      fav: true,
     },
     {
       team: "UX y Diseño",
@@ -37,6 +40,7 @@ function App() {
       id: uuidv4(),
       name: "Jeanmarie Quijada",
       position: "Instructora en Alura Latam",
+      fav: true,
     },
     {
       team: "Programación",
@@ -44,6 +48,7 @@ function App() {
       id: uuidv4(),
       name: "Christian Velasco",
       position: "Head de Alura e Instructor",
+      fav: false,
     },
     {
       team: "Innovación y Gestión",
@@ -51,6 +56,7 @@ function App() {
       id: uuidv4(),
       name: "Jose Gonzalez",
       position: "Dev FullStack",
+      fav: true,
     },
   ]);
 
@@ -148,6 +154,16 @@ function App() {
     updateTeam([...teams, { ...newTeam, id: uuidv4() }]);
   };
 
+  const like = (id) => {
+    const updatedCollaborators = collaborators.map((collaborator) => {
+      if (collaborator.id === id) {
+        collaborator.fav = !collaborator.fav;
+      }
+      return collaborator;
+    });
+    updateCollaborator(updatedCollaborators);
+  };
+
   return (
     <div>
       <Header />
@@ -170,6 +186,7 @@ function App() {
           )}
           deleteCollaborator={deleteCollaborator}
           updateTeamColor={updateTeamColor}
+          like={like}
         />
       ))}
       <Footer />;
